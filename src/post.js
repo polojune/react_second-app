@@ -4,7 +4,7 @@ import styled from "styled-components";
 const PostBox = styled.div`
   height: 100px;
   width: 300px;
-  border: 1px solid black;
+  border: 1px solid blue;
 `;
 const Post = (props) => {
   return <PostBox>{props.title}</PostBox>;

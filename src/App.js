@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import Post from "./post";
 import styled from "styled-components";
 
+const ContainerBox = styled.div`
+  display: grid;
+
+  justify-content: center;
+`;
+
 class App extends Component {
   state = {
     posts: [
@@ -36,17 +42,24 @@ class App extends Component {
       }),
     });
   };
+  update = () => {
+    const data = {
+      id: 2,
+      title: "제목200",
+    };
+    this.setState({
+      posts: this.state.posts.map((post) =>
+        post.id === data.id ? { ...post, ...data } : post
+      ),
+    });
+  };
 
   render() {
-    const ContainerBox = styled.div`
-      display: grid;
-      justify-content: center;
-    `;
-
     return (
       <ContainerBox>
         <button onClick={this.del}>삭제</button>
         <button onClick={this.add}>추가</button>
+        <button onClick={this.update}>수정</button>
         {this.state.posts.map((post) => {
           return <Post id={post.id} title={post.title} />;
         })}

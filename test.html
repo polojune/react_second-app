@@ -7,10 +7,60 @@
   </head>
   <body>
     <script>
-      let a = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
-      console.log(a);
-      let b = a.filter((n) => n.id != 3);
-      console.log(b);
+      //배열의 중간 요소 추가
+      // const a = [1, 2, 3];
+      // console.log(1, a);
+      // const b = a.slice(0, 2);
+      // console.log(2, b);
+      // const c = b.concat(4);
+      // console.log(3, c);
+      // const d = a.slice(2, 3);
+      // console.log(d);
+      // const e = c.concat(d);
+      // console.log(e);
+      // const b = a.slice(0, 2).concat(4, a.slice(2, 3));
+      // consle.log(2, b);
+      // const b = [...a.slice(0, 2), 4, ...a.slice(2, 3)];
+      // console.log(b);
+
+      //스프레드 연산자 = 배열 결합
+      //const a = [1, 2, 3];
+      //const b = [3, 4, 5];
+      //const c = a.concat(b);
+      //console.log(c);
+      //const c = [...a, ...b]; // 결합(배열)
+      //console.log(c);
+      //console.log(a);
+      //console.log(...a);
+
+      //스프레드 연산자 = 오브젝트 덮어씀
+      // const a = { id: 1, name: "홍길동" };
+      // const b = { ...a, id: 2, name: "장보고" };
+      // console.log(b);
+
+      //스프레드 연산자 = 오브젝트 덮어씀
+      // const a = { a: 1, b: 2, c: 3, d: 4 };
+      // const b = { d: 100, e: 101, f: 102 };
+      // const c = { ...a, ...b };
+      // console.log(c);
+
+      // const names = ["홍길동", "이병헌", "홍승우"];
+      // const i = names[1].indexOf("홍");
+      // console.log(i);
+
+      // const filterNames = names.filter((name) => name.indexOf("홍") !== -1);
+      // console.log(filterNames);
+
+      const users = [
+        { id: 1, name: "장보고", phone: "1111" },
+        { id: 2, name: "임꺽정", phone: "2222" },
+        { id: 3, name: "홍길동", phone: "3333" },
+      ];
+      const requestUser = { id: 2, name: "원빈" };
+      const newUsers = users.map((user) =>
+        user.id === 2 ? { ...user, ...requestUser } : user
+      );
+      console.log(newUsers);
     </script>
   </body>
 </html>
